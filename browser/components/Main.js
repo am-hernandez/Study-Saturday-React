@@ -9,9 +9,7 @@ export default class Main extends Component {
     this.state = {
       students: [],
       selectedStudent: {},
-      // studentTests: [],
     };
-    // this.viewTests = this.viewTests.bind(this);
     this.selectStudent = this.selectStudent.bind(this);
   }
 
@@ -29,17 +27,6 @@ export default class Main extends Component {
     }
   }
 
-  // async viewTests(studentId) {
-  //   console.log("fetching tests");
-  //   try {
-  //     const { data } = await axios.get("/test", {
-  //       params: { studentId: studentId },
-  //     });
-  //     return data;
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }
   async selectStudent(studentId) {
     try {
       const { data } = await axios.get(`/student/${studentId}`);
@@ -51,8 +38,8 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Students</h1>
+      <div className="container mainContainer">
+        <h2>Students</h2>
         <StudentList
           students={this.state.students}
           viewTests={this.viewTests}
